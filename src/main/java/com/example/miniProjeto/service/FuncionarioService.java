@@ -18,7 +18,7 @@ public class FuncionarioService {
         return repository.save(funcionario);
     }
 
-    public funcionario buscar(Long id){
+    public Funcionario buscar(Long id){
         return repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("funcionario não encontrado!"));
     }
