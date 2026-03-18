@@ -25,5 +25,6 @@ public class Funcionario {
     @NotNull(message = "Tem que ter email")
     private String email;
 
-    @NotNull()
+    @NotNull(message = "Tem que ter salário")
+    private Double salario;
 }
