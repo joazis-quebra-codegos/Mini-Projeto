@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.UniqueElements;
 
 @Entity
 @Getter
@@ -17,12 +18,14 @@ public class Funcionario {
     private Long id;
 
     @NotBlank(message = "Preencha o nome do produto")
+    @Column(unique = true, nullable = false)
     private String nome;
 
     @NotNull(message = "Tem que preencher o cargo")
     private String cargo;
 
     @NotNull(message = "Tem que ter email")
+    @Column(unique = true, nullable = false)
     private String email;
 
     @NotNull(message = "Tem que ter salário")

@@ -34,4 +34,8 @@ public class FuncionarioService {
     public List<Funcionario> buscarPorNome(String nome){
         return repository.findByNomeContainingIgnoreCase(nome);
     }
+
+    public List<Funcionario> buscarPorSalario(Double salario){
+        return repository.findBySalarioGreaterThan(salario);
+    }
 }
