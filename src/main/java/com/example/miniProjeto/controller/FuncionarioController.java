@@ -42,12 +42,12 @@ public class FuncionarioController {
         service.deletar(id);
     }
 
-    @GetMapping("/buscar")
+    @GetMapping("/buscarNome")
     public List<Funcionario> buscarPorNome(@RequestParam String nome){
         return service.buscarPorNome(nome);
     }
 
-    @GetMapping("/buscar")
+    @GetMapping("/buscarSalario")
     public List<Funcionario> buscarPorSalario(@RequestParam Double salario){
         return service.buscarPorSalario(salario);
     }
