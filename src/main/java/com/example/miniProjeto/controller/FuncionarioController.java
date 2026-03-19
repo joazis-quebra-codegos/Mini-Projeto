@@ -41,4 +41,14 @@ public class FuncionarioController {
     public void deletar(@PathVariable Long id){
         service.deletar(id);
     }
+
+    @GetMapping("/buscar")
+    public List<Funcionario> buscarPorNome(@RequestParam String nome){
+        return service.buscarPorNome(nome);
+    }
+
+    @GetMapping("/buscar")
+    public List<Funcionario> buscarPorSalario(@RequestParam Double salario){
+        return service.buscarPorSalario(salario);
+    }
 }
