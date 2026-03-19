@@ -1,13 +1,17 @@
 package com.example.miniProjeto.handler;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@RestControllerAdvice
 public class FuncionarioHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -26,6 +30,14 @@ public class FuncionarioHandler {
     public Map<String, String> tratarErro(RuntimeException ex){
         Map<String, String> erro = new HashMap<>();
         erro.put("erro", ex.getMessage());
+        return erro;
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    @ResponseStatus(HttpStatus.CONFLICT) // 409 é o ideal
+    public Map<String, String> tratarDuplicidade(DataIntegrityViolationException ex){
+        Map<String, String> erro = new HashMap<>();
+        erro.put("erro", "Email já cadastrado!");
         return erro;
     }
 

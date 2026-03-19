@@ -19,7 +19,6 @@ public class Funcionario {
     private Long id;
 
     @NotBlank(message = "Preencha o nome do produto")
-    @Column(unique = true, nullable = false)
     private String nome;
 
     @NotBlank(message = "Tem que preencher o cargo")

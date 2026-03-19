@@ -4,6 +4,7 @@ package com.example.miniProjeto.controller;
 import com.example.miniProjeto.model.Funcionario;
 import com.example.miniProjeto.service.FuncionarioService;
 import jakarta.validation.Valid;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -43,12 +44,12 @@ public class FuncionarioController {
     }
 
     @GetMapping("/buscarNome")
-    public List<Funcionario> buscarPorNome(@RequestParam String nome){
+    public List<Funcionario> buscarPorNome(@RequestParam @Valid String nome){
         return service.buscarPorNome(nome);
     }
 
     @GetMapping("/buscarSalario")
-    public List<Funcionario> buscarPorSalario(@RequestParam Double salario){
+    public List<Funcionario> buscarPorSalario(@RequestParam @Valid Double salario){
         return service.buscarPorSalario(salario);
     }
 }
