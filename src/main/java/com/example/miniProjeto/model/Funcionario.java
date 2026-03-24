@@ -18,7 +18,7 @@ public class Funcionario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Preencha o nome do produto")
+    @NotBlank(message = "Preencha o nome do Funcionario")
     private String nome;
 
     @NotBlank(message = "Tem que preencher o cargo")
